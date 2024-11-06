@@ -15,7 +15,7 @@ export const ProyectsCard = () => {
             <Card.Body>
               <Card.Title className='text-info opacity-75'>{tarjeta.titulo}</Card.Title>
               <Card.Text className='incrustado opacitu-75 text-white'>{tarjeta.contenido}</Card.Text>
-              <img src={tarjeta.img} className='w-100'></img>
+              <img src={tarjeta.img} alt='imagen proyecto' className='w-100'></img>
             </Card.Body>
           </Card>
         </Col>
