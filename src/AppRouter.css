@@ -1,0 +1,296 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+h5{
+    color: #e3edf7;
+    text-shadow: 
+     1px 1px 4px rgba(0, 0, 0, 0.7); /*Sombreado inferior */
+    /*-0.5px -0.5px 0 rgba(0, 0, 0, 0.4),  Sombra más intensa para dar profundidad */
+    /*-1px -1px 1px rgba(0, 0, 0, 0.2);  Sombra ligera para la izquierda y arriba */
+}
+p{
+    text-align: center;
+    color: #c96e6e;
+    text-shadow: 
+     1px 1px 4px rgba(0, 0, 0, 0.5); /*Sombreado inferior */
+}
+
+
+
+
+
+
+
+
+  
+  .app {
+    padding: 0 5%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.795), rgba(189, 189, 189, 0.5));
+   /* background-image: url('/public/bg-img/textura-papel-blanco.jpg');  Ajusta la ruta a tu imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+    position: relative;
+    overflow: scroll;
+    
+  }
+  
+  .content {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    
+    /* Sombra ajustada */
+    box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.6); /* Menos oscura y más difusa */
+
+    z-index: 1;
+    transition: box-shadow 0.3s ease;
+}
+
+  
+  .content:hover {
+    /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); */
+    box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.8);
+    background-image: 
+        linear-gradient( rgba(255, 255, 255, 0.884), rgba(61, 61, 61, 0.5)); /* Gradiente */
+    cursor: pointer;
+        
+  }
+
+
+
+
+
+
+  
+  .app::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.05) 80%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card-bg {
+    background-image: 
+        linear-gradient( rgba(255, 255, 255, 0.884), rgba(151, 151, 151, 0.5)); /* Gradiente */
+     /*   url('/public/bg-img/bg-card/textura-pared-blanca.jpg');  Imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+    padding: 20px; /* Ajusta el padding si es necesario */
+    color: white; /* Cambia el color del texto si es necesario */
+        
+}
+
+
+.card-morph {
+    width: 50%;
+    max-width: 500px;
+    min-width: 250px;
+    height: 30%;
+    min-height: 300px;
+    max-height: 700px;
+    border-radius: 10px;
+    background: 
+    linear-gradient(rgb(142, 192, 226), rgb(114, 158, 177));
+    box-shadow:  10px 10px 30px #0000007a,
+                -16px -16px 10px #ffffff;
+
+    border: none;
+                
+    /* overflow: hidden; */
+    overflow-wrap: break-word; /* Permite saltos de línea dentro de las palabras si es necesario */
+   }
+
+
+
+  
+
+   .text-card{
+    text-align: start;
+   }
+
+   @media(max-width: 959px){
+    .text-card{
+      text-align: center;
+    }
+   }
+
+
+
+
+   .info-contacto{
+    margin: 0 auto;
+   }
+
+
+
+
+
+/* MORPH */ 
+.btn-morph {
+    display: grid;
+    place-items: center;
+    background-color: #e3edf7;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(172, 172, 172, 0.5)); */
+    padding: 1.4em;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+            -6px -6px 10px -1px rgb(255, 255, 255);
+    /* border: 1px solid rgba(0,0,0,0); */
+    border: none;
+    cursor: pointer;    
+    transition: transform 0.5s;
+  }
+  
+  .btn-morph:hover {
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+            inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+            -0.5px -0.5px 0px rgba(255,255,255,1),
+            0.5px 0.5px 0px rgba(0,0,0,0.15),
+            0px 12px 10px -10px rgba(0,0,0,0.05);
+    /* border: 1px solid rgba(0,0,0,0.1); */
+    transform: translateY(0.5em);
+  }
+  
+  .btn-morph svg {
+    transition: transform 0.5s;
+  }
+  
+  .btn-morph:hover svg {
+    transform: scale(0.9);
+    fill: #333333;
+  }
+
+  @media (max-width: 600px) {
+    .btn-morph{
+      padding: 10px;      
+    }
+  }
+  
+  
+
+
+
+
+
+
+  /* MORPH SOLO */
+  .morph {
+    width: 50%;
+    display: grid;
+    place-items: center;
+    background-color: #eeeeee;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(172, 172, 172, 0.5)); */
+    padding: 2%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+            -6px -6px 10px -1px rgb(255, 255, 255);
+    /* border: 1px solid rgba(0,0,0,0); */
+    border: none;   
+    transition: transform 0.5s;
+  }
+  .morph:hover {
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+            inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+            -0.5px -0.5px 0px rgba(255,255,255,1),
+            0.5px 0.5px 0px rgba(0,0,0,0.15),
+            0px 12px 10px -10px rgba(0,0,0,0.05);
+    /* border: 1px solid rgba(0,0,0,0.1); */
+    transform: translateY(0.1em);
+    transition: transform 0.5s;
+  }
+  @media(max-width: 480px){
+    .morph{
+      width: 80%;
+    }
+  }
+
+
+
+
+  /* TEXTO */
+
+
+  .incrustado {
+    color: rgb(236, 236, 236); /* Color del texto */
+    text-shadow: 
+     /*1px 1px 2px rgba(0, 0, 0, 0.4), Sombra más intensa */
+    -0.5px -0.5px 0 rgba(0, 0, 0, 0.3), /* Sombra más intensa para dar profundidad */
+    -1px -1px 1px rgba(0, 0, 0, 0.2);  /*Sombra ligera para la izquierda y arriba */
+    
+}
+
+
+
+/* FOTO PERFIL */
+
+
+.foto-perfil{
+    width: 200px;
+    height: 180px;
+    border-radius: 50%;
+    background-image: 
+    /* linear-gradient(rgba(44, 85, 78, 0.178), rgba(9, 31, 32, 0.247)), */
+    url('/public/bg-img/foto-perfil/foto-perfil.jpeg');
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+
+    box-shadow: 6px 6px 10px -1px rgba(49, 67, 85, 0.979),
+            -6px -6px 10px -1px rgba(202, 228, 253, 0.7);
+}
+
+
+
+
+.button-simple-morph {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  }
+  
+  .button-simple-morph:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* SVG */
+.svg-icon {
+  width: 48px;
+  height: 48px;
+}
+
+/* Media query para pantallas pequeñas (por ejemplo, dispositivos móviles) */
+@media (max-width: 768px) {
+  .svg-icon {
+      width: 24px;   /* Ajusta el tamaño aquí */
+      height: 30px;  /* Ajusta el tamaño aquí */
+  }
+}
