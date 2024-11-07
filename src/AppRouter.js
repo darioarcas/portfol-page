@@ -2,9 +2,40 @@ import React, { useState } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import { ProyectsCard } from './components/ProyectsCard'
 import "./AppRouter.css";
+import { Button, Modal, Toast, ToastContainer } from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const AppRouter = () => {
   const [isHovered, setIsHovered] = useState(false);
+  // Estado para controlar la apertura y cierre de los modales
+  const [showModalPdf, setShowModalPdf] = useState(false);
+  const [showModalContact, setShowModalContact] = useState(false);
+  const [showFormacion, setShowFormacion] = useState(false);
+  const [showToast, setShowToast] = useState(false); // Para mostrar el toast cuando se copie el correo
+
+
+  const email = "darioarcas@hotmail.com";
+
+  // Función para abrir y cerrar modales
+  const handleShowPdf = () => setShowModalPdf(true);
+  const handleClosePdf = () => setShowModalPdf(false);
+  
+  const handleShowContact = () => setShowModalContact(true);
+  const handleCloseContact = () => setShowModalContact(false);
+
+  const handleShowFormacion = () => setShowFormacion(true);  // Mostrar tercer modal
+  const handleCloseFormacion = () => setShowFormacion(false);  // Cerrar tercer modal
+
+  // Función para copiar el email al portapapeles
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setShowToast(true); // Mostrar el mensaje de éxito al copiar
+      setTimeout(() => setShowToast(false), 3000); // Ocultar el Toast después de 3 segundos
+    });
+  };
+
+
+
   return (
     <div className="app">
 
@@ -48,8 +79,12 @@ export const AppRouter = () => {
               className={`my-col animate__faster position-absolute w-100 ${isHovered ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut'}`}
 
             >
-              <h3 className='incrustado fw-normal'>Contacto: <h4 className='fw-semibold d-inline text-info opacity-25'>darioarcas@hotmail.com</h4></h3>
-              <h5 className='text-white'>CV</h5>
+              <h3 className='incrustado text-center mt-5 mb-5 fw-normal'>Información y Contacto</h3>
+              <div className='d-flex justify-content-center'>
+                <svg className='incrustado text-dark opacity-50' width="60" height="60" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.25 5.5V18M12.25 18L6.25 12M12.25 18L18.25 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
 
             </Col>
 
@@ -66,10 +101,8 @@ export const AppRouter = () => {
           {/* CV PDF */}
           <div className='w-25'>
             <p>CV</p>
-            <button className='btn-morph info-contacto'>
-              <svg  className='svg-icon' fill="#eb5757" height="48" width="48" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg"><path d="m25.6686 26.0962c-.4874.1439-1.203.1601-1.9702.0488-.8234-.1194-1.6633-.3711-2.4888-.742 1.4721-.2142 2.6141-.1482 3.5909.1979.2314.082.6115.3012.8681.4953zm-8.2134-1.3503c-.0599.0163-.1189.0317-.1776.048-.3961.1078-.7815.213-1.1529.3066l-.5008.127c-1.0074.2549-2.0374.5153-3.0547.8254.3866-.9323.7458-1.8749 1.0975-2.7965.2604-.6822.5263-1.3791.8013-2.067.1395.2304.2851.4609.4366.692.6902 1.0512 1.5578 2.0231 2.5506 2.8645zm-2.5625-10.5133c.0653 1.1504-.1829 2.2571-.547 3.3188-.4485-1.3128-.6575-2.7625-.0968-3.9329.1438-.3.2616-.4604.338-.5441.118.1822.2732.5898.3058 1.1582zm-5.25923 14.5728c-.25199.4508-.50921.8728-.77284 1.2713-.63621.9588-1.6767 1.9854-2.21122 1.9854-.0526 0-.11625-.0085-.20926-.1067-.05987-.0628-.06946-.1078-.06656-.1692.01802-.3525.48508-.9803 1.16168-1.5624.61412-.5281 1.30825-.9976 2.0982-1.4184zm17.73713-2.6593c-.0817-1.1742-2.0583-1.9275-2.0778-1.9345-.7641-.2709-1.5942-.4025-2.5376-.4025-1.0099 0-2.0987.1461-3.497.4728-1.2442-.882-2.319-1.9862-3.122-3.2086-.3546-.5401-.6734-1.0792-.9513-1.6058.6784-1.6221 1.2893-3.3662 1.1783-5.3196-.0895-1.5663-.7958-2.6184-1.7563-2.6184-.6589 0-1.2262.488-1.6875 1.4518-.8229 1.7174-.6066 3.9149.6426 6.5371-.4499 1.0567-.8679 2.1522-1.2725 3.2127-.5034 1.3187-1.0221 2.6792-1.6067 3.9734-1.63946.6487-2.98632 1.4354-4.10878 2.4012-.73532.6316-1.62179 1.5971-1.67239 2.605-.0247.4747.13806.91.46881 1.2588.35139.3703.79285.5653 1.27826.5659 1.60319 0 3.14619-2.2027 3.4389-2.6445.5891-.888 1.1405-1.8785 1.6808-3.021 1.3608-.4918 2.811-.8589 4.2166-1.2137l.5034-.1279c.3784-.0962.7717-.2026 1.1751-.313.4269-.1154.8661-.2351 1.3125-.3488 1.4433.9179 2.9954 1.5166 4.5091 1.7363 1.275.1855 2.4073.0779 3.1738-.3217.6897-.3592.7277-.9135.7117-1.135zm3.1049 10.0967c0 2.1504-1.8953 2.283-2.2777 2.2873h-24.45294c-2.14262 0-2.27164-1.9083-2.27573-2.2873l-.00029-32.48638c0-2.15252 1.89879-2.28302 2.27573-2.28734h16.51843l.0088.00872v6.44616c0 1.29367.7821 3.74294 3.744 3.74294h6.4045l.055.0549zm-1.5183-26.0452h-4.9403c-2.142 0-2.2716-1.89791-2.2745-2.27343v-4.9711zm2.9875 26.0452v-25.1271l-10.2023-10.244678v-.047665h-.0488l-.8194-.823357h-17.12929c-1.29537 0-3.74491.785336-3.74491 3.75711v32.48639c0 1.2992.782956 3.7565 3.74491 3.7565h24.45519c1.2951-.0003 3.7446-.7857 3.7446-3.7572z"/></svg>
-              {/* <svg  fill="#eb5757" height="48" width="48" viewBox="0 0 32 40" xmlns="http://www.w3.org/2000/svg"><path d="m25.6686 26.0962c-.4874.1439-1.203.1601-1.9702.0488-.8234-.1194-1.6633-.3711-2.4888-.742 1.4721-.2142 2.6141-.1482 3.5909.1979.2314.082.6115.3012.8681.4953zm-8.2134-1.3503c-.0599.0163-.1189.0317-.1776.048-.3961.1078-.7815.213-1.1529.3066l-.5008.127c-1.0074.2549-2.0374.5153-3.0547.8254.3866-.9323.7458-1.8749 1.0975-2.7965.2604-.6822.5263-1.3791.8013-2.067.1395.2304.2851.4609.4366.692.6902 1.0512 1.5578 2.0231 2.5506 2.8645zm-2.5625-10.5133c.0653 1.1504-.1829 2.2571-.547 3.3188-.4485-1.3128-.6575-2.7625-.0968-3.9329.1438-.3.2616-.4604.338-.5441.118.1822.2732.5898.3058 1.1582zm-5.25923 14.5728c-.25199.4508-.50921.8728-.77284 1.2713-.63621.9588-1.6767 1.9854-2.21122 1.9854-.0526 0-.11625-.0085-.20926-.1067-.05987-.0628-.06946-.1078-.06656-.1692.01802-.3525.48508-.9803 1.16168-1.5624.61412-.5281 1.30825-.9976 2.0982-1.4184zm17.73713-2.6593c-.0817-1.1742-2.0583-1.9275-2.0778-1.9345-.7641-.2709-1.5942-.4025-2.5376-.4025-1.0099 0-2.0987.1461-3.497.4728-1.2442-.882-2.319-1.9862-3.122-3.2086-.3546-.5401-.6734-1.0792-.9513-1.6058.6784-1.6221 1.2893-3.3662 1.1783-5.3196-.0895-1.5663-.7958-2.6184-1.7563-2.6184-.6589 0-1.2262.488-1.6875 1.4518-.8229 1.7174-.6066 3.9149.6426 6.5371-.4499 1.0567-.8679 2.1522-1.2725 3.2127-.5034 1.3187-1.0221 2.6792-1.6067 3.9734-1.63946.6487-2.98632 1.4354-4.10878 2.4012-.73532.6316-1.62179 1.5971-1.67239 2.605-.0247.4747.13806.91.46881 1.2588.35139.3703.79285.5653 1.27826.5659 1.60319 0 3.14619-2.2027 3.4389-2.6445.5891-.888 1.1405-1.8785 1.6808-3.021 1.3608-.4918 2.811-.8589 4.2166-1.2137l.5034-.1279c.3784-.0962.7717-.2026 1.1751-.313.4269-.1154.8661-.2351 1.3125-.3488 1.4433.9179 2.9954 1.5166 4.5091 1.7363 1.275.1855 2.4073.0779 3.1738-.3217.6897-.3592.7277-.9135.7117-1.135zm3.1049 10.0967c0 2.1504-1.8953 2.283-2.2777 2.2873h-24.45294c-2.14262 0-2.27164-1.9083-2.27573-2.2873l-.00029-32.48638c0-2.15252 1.89879-2.28302 2.27573-2.28734h16.51843l.0088.00872v6.44616c0 1.29367.7821 3.74294 3.744 3.74294h6.4045l.055.0549zm-1.5183-26.0452h-4.9403c-2.142 0-2.2716-1.89791-2.2745-2.27343v-4.9711zm2.9875 26.0452v-25.1271l-10.2023-10.244678v-.047665h-.0488l-.8194-.823357h-17.12929c-1.29537 0-3.74491.785336-3.74491 3.75711v32.48639c0 1.2992.782956 3.7565 3.74491 3.7565h24.45519c1.2951-.0003 3.7446-.7857 3.7446-3.7572z"/></svg> */}
-
+            <button className='btn-morph info-contacto' onClick={handleShowPdf}>
+              <svg  className='svg-icon' height="55" viewBox="0 0 50 65" width="55" xmlns="http://www.w3.org/2000/svg"><path d="m5.1 0c-2.8 0-5.1 2.3-5.1 5.1v53.8c0 2.8 2.3 5.1 5.1 5.1h45.8c2.8 0 5.1-2.3 5.1-5.1v-38.6l-18.9-20.3z" fill="#8c181a"/><path d="m56 20.4v1h-12.8s-6.3-1.3-6.1-6.7c0 0 .2 5.7 6 5.7z" fill="#6b0d12"/><g fill="#fff"><path d="m37.1 0v14.6c0 1.7 1.1 5.8 6.1 5.8h12.8z" opacity=".5"/><path d="m14.9 49h-3.3v4.1c0 .4-.3.7-.8.7-.4 0-.7-.3-.7-.7v-10.2c0-.6.5-1.1 1.1-1.1h3.7c2.4 0 3.8 1.7 3.8 3.6 0 2-1.4 3.6-3.8 3.6zm-.1-5.9h-3.2v4.6h3.2c1.4 0 2.4-.9 2.4-2.3s-1-2.3-2.4-2.3zm10.4 10.7h-3c-.6 0-1.1-.5-1.1-1.1v-9.8c0-.6.5-1.1 1.1-1.1h3c3.7 0 6.2 2.6 6.2 6s-2.4 6-6.2 6zm0-10.7h-2.6v9.3h2.6c2.9 0 4.6-2.1 4.6-4.7.1-2.5-1.6-4.6-4.6-4.6zm16.3 0h-5.8v3.9h5.7c.4 0 .6.3.6.7s-.3.6-.6.6h-5.7v4.8c0 .4-.3.7-.8.7-.4 0-.7-.3-.7-.7v-10.2c0-.6.5-1.1 1.1-1.1h6.2c.4 0 .6.3.6.7.1.3-.2.6-.6.6z"/></g></svg>
             </button>
           </div>
           
@@ -77,8 +110,8 @@ export const AppRouter = () => {
           {/* MAIL */}
           <div className='w-25'>
             <p>Mail</p>
-            <button className='btn-morph info-contacto'>
-            <svg className='svg-icon' fill="none" height="48" width="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h48v48h-48z" fill="#fff" fill-opacity="0"/><g stroke-linejoin="round" stroke-width="2"><path d="m4 39h40v-15-15h-20-20v15z" fill="#7cafd5" stroke="#000"/><path d="m4 9 20 15 20-15" stroke="#fff" stroke-linecap="round"/><path d="m24 9h-20v15" stroke="#000" stroke-linecap="round"/><path d="m44 24v-15h-20" stroke="#000" stroke-linecap="round"/></g></svg>
+            <button className='btn-morph info-contacto' onClick={handleShowContact}>
+            <svg className='svg-icon' fill = "none" height="48" width="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h48v48h-48z" fill="#fff" fill-opacity="0"/><g stroke-linejoin="round" stroke-width="2"><path d="m4 39h40v-15-15h-20-20v15z" fill="#7cafd5" stroke="#000"/><path d="m4 9 20 15 20-15" stroke="#fff" stroke-linecap="round"/><path d="m24 9h-20v15" stroke="#000" stroke-linecap="round"/><path d="m44 24v-15h-20" stroke="#000" stroke-linecap="round"/></g></svg>
 
             </button>
           </div>
@@ -87,7 +120,7 @@ export const AppRouter = () => {
           {/* FORMACION */}
           <div className='w-25'>
             <p>Estudio</p>
-            <button className='btn-morph info-contacto'>
+            <button className='btn-morph info-contacto' onClick={handleShowFormacion}>
               <svg className='svg-icon' height="48" width="48"viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><g transform="translate(0 -1028.4)"><path d="m3 1035.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#16a085"/><path d="m3 1034.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#ecf0f1"/><path d="m3 1033.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#bdc3c7"/><path d="m3 1032.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#ecf0f1"/><path d="m5 1028.4c-1.1046 0-2 .9-2 2v1 4 2 1 3 1 5 1c0 1.1.8954 2 2 2h2v-1h-1.5c-.8284 0-1.5-.7-1.5-1.5 0-.9.6716-1.5 1.5-1.5h12.5 1c1.105 0 2-.9 2-2v-1-5-4-3-1c0-1.1-.895-2-2-2h-4z" fill="#16a085"/><path d="m8 1028.4v18h1 9 1c1.105 0 2-.9 2-2v-1-5-4-3-1c0-1.1-.895-2-2-2h-4-6z" fill="#1abc9c"/><path d="m7 1048.4v2 2l2.5-2 2.5 2v-2-2z" fill="#e74c3c"/><path d="m7 1047.4h5v1h-5z" fill="#c0392b"/></g></svg>
 
             </button>
@@ -95,9 +128,101 @@ export const AppRouter = () => {
         </div>
       </div>
 
+      <p className='text-dark opacity-25 fs-2 fw-bold mt-5'>PROYECTOS</p>
+
       <div>
         <ProyectsCard />
       </div>
+
+
+
+
+
+
+      {/* Modal de CV */}
+      <Modal show={showModalPdf} onHide={handleClosePdf} size="lg" centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Curriculum Dario Arcas</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Contenedor scrollable para el PDF */}
+          <div style={{height: '500px' }}>
+            <iframe
+              src="https://drive.google.com/file/d/1e8tHFouCJUDucQpzN4aCSLP70_h7LBvt/preview"  // Cambia este enlace por la URL del PDF
+              width="100%"
+              height="100%"
+              title="Vista PDF"
+            />
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClosePdf}>
+            Cerrar
+          </Button>
+          <Button variant="primary" href="https://drive.google.com/file/d/1e8tHFouCJUDucQpzN4aCSLP70_h7LBvt/view?usp=drive_link" download="documento.pdf">
+            Descargar PDF
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+
+
+
+      {/* Modal Email */}
+      <Modal show={showModalContact} onHide={handleCloseContact} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Opciones de Contacto</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Toast para confirmar que el email fue copiado al portapapeles */}
+          <ToastContainer position="bottom-end" className='w-50'>
+            <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide>
+              <Toast.Body>¡Correo copiado al portapapeles!</Toast.Body>
+            </Toast>
+          </ToastContainer>
+          
+          <Button
+            variant="primary"
+            href={`mailto:${email}`}
+            target="_blank"
+            style={{ width: '100%', marginBottom: '10px' }}
+          >
+            Enviar Email
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={copyToClipboard}
+            style={{ width: '100%' }}
+          >
+            Copiar Dirección de Email
+          </Button>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseContact}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+
+
+
+      {/* Tercer Modal */}
+      <Modal show={showFormacion} onHide={handleCloseFormacion} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Formacion y Experiencia</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Este es el contenido del tercer modal.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseFormacion}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      
 
     </div>
   )

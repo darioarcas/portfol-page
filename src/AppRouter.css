@@ -29,6 +29,7 @@ p{
   .app {
     padding: 0 5%;
     height: 100%;
+    /* background-color: rgb(0, 0, 0); */
     background-image: linear-gradient(rgba(255, 255, 255, 0.795), rgba(189, 189, 189, 0.5));
    /* background-image: url('/public/bg-img/textura-papel-blanco.jpg');  Ajusta la ruta a tu imagen */
     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
@@ -169,7 +170,7 @@ p{
   
   .btn-morph:hover svg {
     transform: scale(0.9);
-    fill: #333333;
+    /* fill: #333333; */
   }
 
   @media (max-width: 600px) {
@@ -216,6 +217,53 @@ p{
       width: 80%;
     }
   }
+
+
+
+
+  /* BTN GITHUB */
+  .btn-github{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10%;
+    display: grid;
+    place-items: center;
+    background-color: #eeeeee;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.795), rgba(172, 172, 172, 0.5)); */
+    padding: 1%;
+    margin: 30px 40px 0 0;
+    border-radius: 50px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+            -6px -6px 10px -1px rgb(255, 255, 255);
+    /* border: 1px solid rgba(0,0,0,0); */
+    border: none;   
+    transition: transform 0.5s;
+  }
+
+  .btn-github:hover {
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+            inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+            -0.5px -0.5px 0px rgba(255,255,255,1),
+            0.5px 0.5px 0px rgba(0,0,0,0.15),
+            0px 12px 10px -10px rgba(0,0,0,0.05);
+    /* border: 1px solid rgba(0,0,0,0.1); */
+    transform: translateY(0.5em);
+  }
+  
+  .btn-github svg {
+    transition: transform 0.5s;
+  }
+  
+  .btn-github:hover svg {
+    transform: scale(0.9);
+    /* fill: #333333; */
+  }
+
+
+
+
+
 
 
 
@@ -293,4 +341,15 @@ p{
       width: 24px;   /* Ajusta el tamaño aquí */
       height: 30px;  /* Ajusta el tamaño aquí */
   }
+  .svg-icon-github{    
+    width: 15px;   /* Ajusta el tamaño aquí */
+    height: 15px;
+  }
+}
+
+
+
+.svg-icon-github{  
+  width: 24px;
+  height: 24px;
 }
