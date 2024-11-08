@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/portfol-page/static/css/main.42b79e2e.css",
+    "main.css": "/portfol-page/static/css/main.968ccd17.css",
     "main.js": "/portfol-page/static/js/main.01dea800.js",
     "static/media/foto-perfil.jpeg": "/portfol-page/static/media/foto-perfil.1f891028d8642010d938.jpeg",
-    "static/media/papel-blanco-doblado.jpg": "/portfol-page/static/media/papel-blanco-doblado.eabea72ecfeab6cffedd.jpg",
+    "static/media/onda-blanco-neomorfo-3.jpg": "/portfol-page/static/media/onda-blanco-neomorfo-3.f268be66e3fcaafd7a9f.jpg",
     "index.html": "/portfol-page/index.html",
-    "main.42b79e2e.css.map": "/portfol-page/static/css/main.42b79e2e.css.map",
+    "main.968ccd17.css.map": "/portfol-page/static/css/main.968ccd17.css.map",
     "main.01dea800.js.map": "/portfol-page/static/js/main.01dea800.js.map"
   },
   "entrypoints": [
-    "static/css/main.42b79e2e.css",
+    "static/css/main.968ccd17.css",
     "static/js/main.01dea800.js"
   ]
 }
