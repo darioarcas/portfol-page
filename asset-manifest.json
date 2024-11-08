@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/portfol-page/static/css/main.0b85ea4b.css",
+    "main.css": "/portfol-page/static/css/main.71fb1c83.css",
     "main.js": "/portfol-page/static/js/main.66fc99ff.js",
+    "static/media/rectangulos-blanco-celeste.jpg": "/portfol-page/static/media/rectangulos-blanco-celeste.72c7b10bb6e088b8062e.jpg",
     "static/media/foto-perfil.jpeg": "/portfol-page/static/media/foto-perfil.1f891028d8642010d938.jpeg",
     "index.html": "/portfol-page/index.html",
-    "main.0b85ea4b.css.map": "/portfol-page/static/css/main.0b85ea4b.css.map",
+    "main.71fb1c83.css.map": "/portfol-page/static/css/main.71fb1c83.css.map",
     "main.66fc99ff.js.map": "/portfol-page/static/js/main.66fc99ff.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b85ea4b.css",
+    "static/css/main.71fb1c83.css",
     "static/js/main.66fc99ff.js"
   ]
 }
