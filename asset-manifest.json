@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/portfol-page/static/css/main.2f5866b2.css",
-    "main.js": "/portfol-page/static/js/main.b4a6c768.js",
+    "main.css": "/portfol-page/static/css/main.52d773a6.css",
+    "main.js": "/portfol-page/static/js/main.44ac6b37.js",
     "static/media/foto-perfil.jpeg": "/portfol-page/static/media/foto-perfil.1f891028d8642010d938.jpeg",
     "static/media/blanco-onda-2.jpg": "/portfol-page/static/media/blanco-onda-2.dafc0dba961266891bdf.jpg",
     "static/media/visual-studio-code.256x255.png": "/portfol-page/static/media/visual-studio-code.256x255.e2b7eb46e009e806f368.png",
     "index.html": "/portfol-page/index.html",
-    "main.2f5866b2.css.map": "/portfol-page/static/css/main.2f5866b2.css.map",
-    "main.b4a6c768.js.map": "/portfol-page/static/js/main.b4a6c768.js.map"
+    "main.52d773a6.css.map": "/portfol-page/static/css/main.52d773a6.css.map",
+    "main.44ac6b37.js.map": "/portfol-page/static/js/main.44ac6b37.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f5866b2.css",
-    "static/js/main.b4a6c768.js"
+    "static/css/main.52d773a6.css",
+    "static/js/main.44ac6b37.js"
   ]
 }
