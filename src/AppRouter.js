@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import { ProyectsCard } from './components/ProyectsCard'
-import "./AppRouter.css";
 import { Button, Modal, Toast, ToastContainer } from 'react-bootstrap';
+
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const AppRouter = () => {
@@ -38,8 +39,9 @@ export const AppRouter = () => {
 
   return (
     <div className="app">
-
       <div className='d-flex justify-content-center mt-5'>
+
+        {/* TARJETA PRESENTACIÓN */}
         <div className='card-morph p-3 mb-5 d-flex justify-content-center overflow-hidden position-relative'>
           <Row 
               onMouseEnter={() => setIsHovered(true)}
@@ -47,15 +49,8 @@ export const AppRouter = () => {
               className='g-4 w-100 d-flex justify-content-center'
           >
             <Col               
-              className={`my-col d-flex justify-content-center animate__faster ${isHovered ? 'animate__animated animate__fadeOutLeft' : 'animate__animated animate__fadeInLeft'}`}
-              style={{
-                  transition: 'all 0.3s',
-                  // backgroundColor: 'white', // Puedes cambiar el color
-                  // padding: '20px',
-                  // border: '1px solid #ccc',
-                  // borderRadius: '5px',
-                  width:"200px"
-              }}
+              className={`d-flex justify-content-center animate__faster ${isHovered ? 'animate__animated animate__fadeOutLeft' : 'animate__animated animate__fadeInLeft'}`}
+              style={{transition: 'all 0.3s', width:"200px"}}
               xs={12} 
               md={6} lg={6}
             >
@@ -65,7 +60,7 @@ export const AppRouter = () => {
               xs={12} 
               md={6} 
               lg={6}
-              className={`my-col animate__faster ${isHovered ? 'animate__animated animate__fadeOutRight' : 'animate__animated animate__fadeInRight'}`}
+              className={`container-text-card animate__faster ${isHovered ? 'animate__animated animate__fadeOutRight' : 'animate__animated animate__fadeInRight'}`}
 
             >
               <h3 className='incrustado text-card'>Dario Arcas</h3>
@@ -76,10 +71,11 @@ export const AppRouter = () => {
               xs={12} 
               md={6} 
               lg={6}
-              className={`my-col animate__faster position-absolute w-100 ${isHovered ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut'}`}
+              className={`animate__faster position-absolute w-100 ${isHovered ? 'animate__animated animate__zoomIn' : 'animate__animated animate__zoomOut'}`}
 
             >
               <h3 className='incrustado text-center mt-5 mb-5 fw-normal'>Información y Contacto</h3>
+              {/* FLECHA ABAJO */}
               <div className='d-flex justify-content-center'>
                 <svg className='incrustado text-dark opacity-50' width="60" height="60" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12.25 5.5V18M12.25 18L6.25 12M12.25 18L18.25 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
@@ -119,7 +115,7 @@ export const AppRouter = () => {
 
           {/* FORMACION */}
           <div className='w-25'>
-            <p>Estudio</p>
+            <p>Formación</p>
             <button className='btn-morph info-contacto' onClick={handleShowFormacion}>
               <svg className='svg-icon' height="48" width="48"viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><g transform="translate(0 -1028.4)"><path d="m3 1035.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#16a085"/><path d="m3 1034.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#ecf0f1"/><path d="m3 1033.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#bdc3c7"/><path d="m3 1032.4v2 1 3 1 5 1c0 1.1.8954 2 2 2h14c1.105 0 2-.9 2-2v-1-5-4-3z" fill="#ecf0f1"/><path d="m5 1028.4c-1.1046 0-2 .9-2 2v1 4 2 1 3 1 5 1c0 1.1.8954 2 2 2h2v-1h-1.5c-.8284 0-1.5-.7-1.5-1.5 0-.9.6716-1.5 1.5-1.5h12.5 1c1.105 0 2-.9 2-2v-1-5-4-3-1c0-1.1-.895-2-2-2h-4z" fill="#16a085"/><path d="m8 1028.4v18h1 9 1c1.105 0 2-.9 2-2v-1-5-4-3-1c0-1.1-.895-2-2-2h-4-6z" fill="#1abc9c"/><path d="m7 1048.4v2 2l2.5-2 2.5 2v-2-2z" fill="#e74c3c"/><path d="m7 1047.4h5v1h-5z" fill="#c0392b"/></g></svg>
 
@@ -128,7 +124,7 @@ export const AppRouter = () => {
         </div>
       </div>
 
-      <p className='text-dark opacity-25 fs-2 fw-bold mt-5'>PROYECTOS</p>
+      <p className='text-info opacity-50 fs-2 fw-bold mt-5 mb-5 incrustado2'>PROYECTOS</p>
 
       <div>
         <ProyectsCard />
@@ -171,7 +167,7 @@ export const AppRouter = () => {
       {/* Modal Email */}
       <Modal show={showModalContact} onHide={handleCloseContact} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Opciones de Contacto</Modal.Title>
+          <Modal.Title>Contacto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {/* Toast para confirmar que el email fue copiado al portapapeles */}
@@ -180,9 +176,11 @@ export const AppRouter = () => {
               <Toast.Body>¡Correo copiado al portapapeles!</Toast.Body>
             </Toast>
           </ToastContainer>
+
+          <p>darioarcas@hotmail.com</p>
           
           <Button
-            variant="primary"
+            variant="primary opacity-75"
             href={`mailto:${email}`}
             target="_blank"
             style={{ width: '100%', marginBottom: '10px' }}
@@ -190,7 +188,7 @@ export const AppRouter = () => {
             Enviar Email
           </Button>
           <Button
-            variant="secondary"
+            variant="dark opacity-75"
             onClick={copyToClipboard}
             style={{ width: '100%' }}
           >
@@ -207,13 +205,22 @@ export const AppRouter = () => {
 
 
 
-      {/* Tercer Modal */}
+      {/* Modal FORMACION Y EXPERIENCIA*/}
       <Modal show={showFormacion} onHide={handleCloseFormacion} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Formacion y Experiencia</Modal.Title>
+          <Modal.Title>Formación y Experiencia</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Este es el contenido del tercer modal.</p>
+          <h6>Formación: 
+            <h6 className='text-primary fw-normal opacity-75 p-2'>Cursos online de HTML, CSS, JavaScript, React. Universidad Nacional de Córdoba, hasta 2 año de Ingeniería Electrónica.</h6>
+
+            Experiencia laboral: 
+            <ul className='text-primary fw-normal opacity-75 py-1'><li>Sin experiencia laboral en Empresas, en el área de programación.</li></ul>
+            <ul className='text-primary fw-normal opacity-75 py-1'><li>Trabajos Freelance desarrollando el FontEnd de página web.</li></ul>
+          </h6>
+          <Button className='bnt btn-primary d-flex justify-content-center p-2 mx-auto' onClick={() => window.open("https://www.academiagroove.com")}>
+            <p className='text-white p-0 m-0' >Ir a la Página</p>
+          </Button>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseFormacion}>
@@ -221,9 +228,6 @@ export const AppRouter = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-
-      
-
     </div>
   )
 }

@@ -1,6 +1,10 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 
@@ -19,6 +23,48 @@ p{
 }
 
 
+footer{
+  background: linear-gradient(rgba(240, 240, 240, 0.699), rgba(185, 185, 185, 0.5));
+  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+            inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+            -0.5px -0.5px 0px rgba(255,255,255,1),
+            0.5px 0.5px 0px rgba(0,0,0,0.15),
+            0px 12px 10px -10px rgba(0,0,0,0.05);
+
+  height:200px; 
+  width:100%;
+  /* display:flex; 
+  flex-direction: column;
+  justify-content:center;  */
+  background-color:darkgray;
+  /* position:absolute; */
+  overflow:hidden;
+}
+
+.container-footer{
+  padding: 4% 4%;
+}
+
+@media(max-width: 959px){
+  .container-footer{
+    padding: 10% 10%;
+  }
+ }
+
+footer svg{
+  margin-right: 15px;
+  width: 32px;
+  height: 32px;
+}
+footer img{
+  margin-right: 15px;
+  width: 32px;
+}
+.iconos-footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 
 
@@ -27,23 +73,41 @@ p{
 
   
   .app {
-    padding: 0 5%;
+    padding: 0 10%;
     height: 100%;
+    padding-bottom: 200px;
+    padding-top: 25px;
     /* background-color: rgb(0, 0, 0); */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.795), rgba(189, 189, 189, 0.5));
-   /* background-image: url('/public/bg-img/textura-papel-blanco.jpg');  Ajusta la ruta a tu imagen */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.699), rgba(189, 189, 189, 0.5));
+    background-image: url('/public/bg-img/blanco-onda-2.jpg');
+    background-size: cover; /* cubre todo el fondo */
     background-position: center; /* Centra la imagen */
     position: relative;
-    overflow: scroll;
+    overflow: hidden;
+    overflow-y: scroll;
     
   }
+
+  @media(max-width: 959px){
+    .app{
+      padding: 0 5%;
+      padding-bottom: 200px;
+      padding-top: 63px;
+    }
+   }
   
   .content {
     position: relative;
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
+    /* width: '95%'; */
+
+    margin:7% auto;
+    max-width: 350px;
+    height:500px;
+    overflow:hidden;
+    padding: 0 auto;
+
+    /* margin: auto; */
+    /* padding: 20px; */
     background: white;
     border-radius: 8px;
     
@@ -53,6 +117,14 @@ p{
     z-index: 1;
     transition: box-shadow 0.3s ease;
 }
+
+/* @media(max-width: 768px){
+  .content{
+    width: '95%';
+    max-width: 500px;
+  }
+} */
+
 
   
   .content:hover {
@@ -96,16 +168,17 @@ p{
 
 .card-morph {
     width: 50%;
-    max-width: 500px;
+    max-width: 450px;
     min-width: 250px;
     height: 30%;
-    min-height: 300px;
+    min-height: 250px;
     max-height: 700px;
     border-radius: 10px;
     background: 
+    /* linear-gradient(rgb(134, 134, 134), rgb(77, 77, 77)); */
     linear-gradient(rgb(142, 192, 226), rgb(114, 158, 177));
     box-shadow:  10px 10px 30px #0000007a,
-                -16px -16px 10px #ffffff;
+                -10px -10px 10px #ffffffd3;
 
     border: none;
                 
@@ -125,6 +198,13 @@ p{
     .text-card{
       text-align: center;
     }
+    .container-text-card h3{
+      margin-top: 20px;
+     }
+   }
+
+   .container-text-card{
+    margin: auto 0;
    }
 
 
@@ -269,9 +349,8 @@ p{
 
 
   /* TEXTO */
-
-
-  .incrustado {
+  
+.incrustado {
     color: rgb(236, 236, 236); /* Color del texto */
     text-shadow: 
      /*1px 1px 2px rgba(0, 0, 0, 0.4), Sombra más intensa */
@@ -279,6 +358,17 @@ p{
     -1px -1px 1px rgba(0, 0, 0, 0.2);  /*Sombra ligera para la izquierda y arriba */
     
 }
+.incrustado2 {
+    color: rgb(236, 236, 236); /* Color del texto */
+    text-shadow:
+            inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+            inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+            -0.5px -0.5px 0px rgba(255,255,255,1),
+            0.5px 0.5px 0px rgba(0,0,0,0.15),
+            0px 12px 10px -10px rgba(0,0,0,0.05);
+    
+}
+
 
 
 
@@ -295,8 +385,10 @@ p{
     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
     background-position: center; /* Centra la imagen */
 
+    /* box-shadow: 6px 6px 10px -1px rgba(29, 29, 29, 0.979),
+            -6px -6px 10px -3px rgba(180, 180, 180, 0.9); */
     box-shadow: 6px 6px 10px -1px rgba(49, 67, 85, 0.979),
-            -6px -6px 10px -1px rgba(202, 228, 253, 0.7);
+            -6px -6px 10px -1px rgba(185, 221, 255, 0.7);
 }
 
 
@@ -323,6 +415,23 @@ p{
 
 
 
+
+  .img-card{
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* background: linear-gradient(rgb(142, 192, 226), rgb(114, 158, 177)); */
+
+  }
+  
+  .img-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
 
 
