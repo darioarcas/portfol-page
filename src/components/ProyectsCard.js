@@ -7,13 +7,13 @@ export const ProyectsCard = () => {
   const tarjetasData = [
     { 
       id: 1, 
-      titulo: 'Web Academia', 
-      contenido: 'Página Web de academia de producción musical', 
-      img: `${process.env.PUBLIC_URL}/paginas-pf/academia-groove.jpg`, 
-      githubUrl: "https://github.com/darioarcas/Academia-groove", 
-      url:"https://academiagroove.com/produccion-musical" ,
+      titulo: 'MailHub', 
+      contenido: 'Web realizada con la API brindada por Microsoft, Microsoft Graph API.', 
+      img: `${process.env.PUBLIC_URL}/paginas-pf/MailHub.jpg`, 
+      githubUrl: "https://github.com/darioarcas/MailHub", 
+      url:"https://darioarcas.github.io/MailHub/" ,
       tecnologias:["html", "css", "javascript", "react"],
-      herramientas: ["visual studio code", "bootstrap"]
+      herramientas: ["visual studio code", "bootstrap", "vite"]
     },
     { 
       id: 2, 
@@ -27,11 +27,11 @@ export const ProyectsCard = () => {
     },
     { 
       id: 3, 
-      titulo: 'Comic', 
-      contenido: 'Contenido de Heroes de Marvel y DC mas un buscador', 
-      img: `${process.env.PUBLIC_URL}/paginas-pf/Comic.jpg`, 
-      githubUrl: "https://github.com/darioarcas/Comic-Proyect", 
-      url:"https://darioarcas.github.io/Comic-Proyect/" ,
+      titulo: 'Trabajo Freelance', 
+      contenido: 'Página Web de academia de producción musical', 
+      img: `${process.env.PUBLIC_URL}/paginas-pf/academia-groove.jpg`, 
+      githubUrl: "https://github.com/darioarcas/Academia-groove", 
+      url:"https://academiagroove.com/produccion-musical" ,
       tecnologias:["html", "css", "javascript", "react"],
       herramientas: ["visual studio code", "bootstrap"]
     },

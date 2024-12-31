@@ -126,6 +126,9 @@ export const AppRouter = () => {
 
       <p className='text-info opacity-50 fs-2 fw-bold mt-5 mb-5 incrustado2'>PROYECTOS</p>
 
+
+
+      {/* PROYECTOS */}
       <div>
         <ProyectsCard />
       </div>
@@ -208,16 +211,23 @@ export const AppRouter = () => {
       {/* Modal FORMACION Y EXPERIENCIA*/}
       <Modal show={showFormacion} onHide={handleCloseFormacion} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Formación y Experiencia</Modal.Title>
+          <Modal.Title><strong>Formación y Experiencia</strong></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h6>Formación: 
-            <h6 className='text-primary fw-normal opacity-75 p-2'>Cursos online de HTML, CSS, JavaScript, React. Universidad Nacional de Córdoba, hasta 2 año de Ingeniería Electrónica.</h6>
+          <section><h4>Formación:</h4> 
+            <ul className='text-primary fw-normal opacity-75 p-2'>
+              <li>Universidad Nacional de Córdoba, hasta 2 año de Ingeniería Electrónica, cursando materias como Informática
+                y aprendiendo los lenguajes: <strong>C++ y Java</strong>.
+              </li>
+              <li>Cursos online de <strong>HTML, CSS, JavaScript y React</strong>.</li>
 
-            Experiencia laboral: 
-            <ul className='text-primary fw-normal opacity-75 py-1'><li>Sin experiencia laboral en Empresas, en el área de programación.</li></ul>
-            <ul className='text-primary fw-normal opacity-75 py-1'><li>Trabajos Freelance desarrollando el FontEnd de página web.</li></ul>
-          </h6>
+            </ul>
+
+            <h4>Experiencia laboral:</h4>
+            <ul className='text-primary fw-normal opacity-75 py-1 mb-3'>
+              <li>Trabajos Freelance desarrollando el FontEnd de página web.</li>
+            </ul>
+          </section>
           <Button className='bnt btn-primary d-flex justify-content-center p-2 mx-auto' onClick={() => window.open("https://www.academiagroove.com")}>
             <p className='text-white p-0 m-0' >Ir a la Página</p>
           </Button>

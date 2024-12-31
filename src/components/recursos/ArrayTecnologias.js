@@ -1,5 +1,6 @@
 import  vsc  from "./png/visual-studio-code.256x255.png";
 import  bootstrap  from "./png/bootstrap.256x256.png";
+import  vite  from "./png/vite-240.png";
 
 
 export const tecnologias = [
@@ -29,5 +30,9 @@ export const herramientasYFrameworks = [
     {
         herramienta:"bootstrap", 
         png: bootstrap
+    },
+    {
+        herramienta: "vite",
+        png: vite
     }
 ];
